@@ -1,0 +1,67 @@
+{% extends './html/base.html' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="./static/CSS/juego.css">
+{% endblock %}
+
+{% block title %}
+Juego - WORDS.inc
+{% endblock %}
+
+{% block main_content %}
+<div id="contenedorGeneral">
+  
+  <div class="unselectable" id="contenedorJug1">
+    <div class="contenedorTiempo">
+      <hr class="barraChica" id="barraChicaJug1">
+    </div>
+    
+    <div class="contenedor">
+      <input class="nombreJugador" id="nombreJug1" disabled>
+      <input class="puntosJugador" id="puntosJug1" value="0" disabled>
+      <img class="foto" id="fotoJug1">
+      <div class="silaba" id="silabaJug1">
+         
+      </div>
+      <input type="text" class="inputPalabra" id="inputJug1" onchange="ingreso()" placeholder="INGRESAR PALABRA">
+    </div>
+  </div>
+  
+  <div class="unselectable" id="contenedorJug2">
+    <div class="contenedorTiempo">
+      <hr class="barraChica" id="barraChicaJug2">
+    </div>
+    
+    <div class="contenedor">
+      <input class="nombreJugador" id="nombreJug2" disabled>
+      <input class="puntosJugador" id="puntosJug2" value="0" disabled>
+      <img class="foto" id="fotoJug2">
+      <div class="silaba" id="silabaJug2">
+         
+      </div>
+      <input type="text" class="inputPalabra" id="inputJug2" placeholder="INGRESAR PALABRA" disabled>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" id="numPartida" value="{{partida}}">
+  <input type="hidden" id="datosJugador" value="{{datosJugador}}">
+  <input type="hidden" id="palabras">
+</div>
+<div class="esperando mostrar" id="esperando">
+  <div class="contenedorEsperando">
+    <a class="subtitulo unselectable">ESPERANDO AL OTRO JUGADOR</a>
+  </div>
+</div>
+<form id="formSalida" action="{{url_for('inicio')}}"></form>
+<div class="esperando" id="resultado">
+  <div class="contenedorEsperando">
+    <a class="subtitulo unselectable" id="subtituloResultado"></a>
+  </div>
+</div>
+<form id="formSalida" action="{{url_for('inicio')}}"></form>
+{% endblock %}
+
+{% block script %}
+<script src="./static/javascript/salir.js"></script>
+<script src="./static/javascript/juego.js"></script>
+{% endblock %}

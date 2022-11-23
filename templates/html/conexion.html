@@ -1,0 +1,146 @@
+{% extends './html/base.html' %}
+
+{% block title %}
+Conexión - WORDS.inc
+{% endblock %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="./static/CSS/conexion.css">
+{% endblock %}
+
+{% block nav %}
+<div class="navbar">
+  <input class="salir" type="button" onclick="cerrarSesion()" value="Cerrar Sesión">
+  <form id="formSalir" action="{{url_for('index')}}"></form>
+</div>
+{% endblock %}
+
+{% block main_content %}
+<div class="contenedor">
+  <div class="titulo unselectable">
+    SELECCIONA UNA PARTIDA
+  </div>
+  <div class="contenedorCreadorPartidas">
+    <input type="button" class="boton" onclick="window.history.back();" value="VOLVER">
+  </div>
+  <div class="contenedorPartidas" id="partida1">
+    <div class="partida">
+      <a>PARTIDA 1</a>
+      <div><a>JUGADORES: <a id="cantJugPart1">0</a><a>/2</a></a></div>
+      <input type="button" class="unirse" id="unirse1" onclick="unirse1()" value="UNIRSE">
+    </div>
+  </div>
+  <div class="contenedorPartidas" id="partida2">
+    <div class="partida">
+      <a>PARTIDA 2</a>
+      <div><a>JUGADORES: <a id="cantJugPart2">0</a><a>/2</a></a></div>
+      <input type="button" class="unirse" id="unirse2" onclick="unirse2()" value="UNIRSE">
+    </div>
+  </div>
+  <div class="contenedorPartidas" id="partida3">
+    <div class="partida">
+      <a>PARTIDA 3</a>
+      <div><a>JUGADORES: <a id="cantJugPart3">0</a><a>/2</a></a></div>
+      <input type="button" class="unirse" id="unirse3" onclick="unirse3()" value="UNIRSE">
+    </div>
+  </div>
+  <div class="contenedorPartidas" id="partida4">
+    <div class="partida">
+      <a>PARTIDA 4</a>
+      <div><a>JUGADORES: <a id="cantJugPart4">0</a><a>/2</a></a></div>
+      <input type="button" class="unirse" id="unirse4" onclick="unirse4()" value="UNIRSE">
+    </div>
+  </div>
+  <div class="contenedorPartidas" id="partida5">
+    <div class="partida">
+      <a>PARTIDA 5</a>
+      <div><a>JUGADORES: <a id="cantJugPart5">0</a><a>/2</a></a></div>
+      <input type="button" class="unirse" id="unirse5" onclick="unirse5()" value="UNIRSE">
+    </div>
+  </div>
+</div>
+<div class="esperando" id="esperando1">
+  <div class="contenedorEsperando">
+    <a class="subtitulo unselectable">ESPERANDO A OTRO JUGADOR PARA INICIAR LA PARTIDA 1</a>
+    <div class="contenedorNombres">
+      <div id="nombreJug1"><a class="unselectable">JUGADOR 1: </a><input type="text" class="nombreJugador" id="partida1Jug1" disabled></div>
+      <div id="nombreJug2"><a class="unselectable">JUGADOR 2: </a><input type="text" class="nombreJugador" id="partida1Jug2" disabled></div>
+    </div>
+    <div id="partida1Boton">
+      <input class="boton" type="button" onclick="salir1()" value="SALIR">
+    </div>
+  </div>
+  <form id="formJuego1" action="{{url_for('juego')}}">
+    <input type="hidden" name="partida" value="1" disabled>
+  </form>
+</div>
+
+<div class="esperando" id="esperando2">
+  <div class="contenedorEsperando">
+    <a class="subtitulo unselectable">ESPERANDO A OTRO JUGADOR PARA INICIAR LA PARTIDA 2</a>
+    <div class="contenedorNombres">
+      <div id="nombreJug1"><a class="unselectable">JUGADOR 1: </a><input type="text" class="nombreJugador" id="partida2Jug1" disabled></div>
+      <div id="nombreJug2"><a class="unselectable">JUGADOR 2: </a><input type="text" class="nombreJugador" id="partida2Jug2" disabled></div>
+    </div>
+    <div id="partida2Boton">
+      <input class="boton" type="button" onclick="salir2()" value="SALIR">
+    </div>
+  </div>
+  <form id="formJuego2" action="{{url_for('juego')}}">
+    <input type="hidden" name="partida" value="2" disabled>
+  </form>
+</div>
+
+<div class="esperando" id="esperando3">
+  <div class="contenedorEsperando">
+    <a class="subtitulo unselectable">ESPERANDO A OTRO JUGADOR PARA INICIAR LA PARTIDA 3</a>
+    <div class="contenedorNombres">
+      <div id="nombreJug1"><a class="unselectable">JUGADOR 1: </a><input type="text" class="nombreJugador" id="partida3Jug1" disabled></div>
+      <div id="nombreJug2"><a class="unselectable">JUGADOR 2: </a><input type="text" class="nombreJugador" id="partida3Jug2" disabled></div>
+    </div>
+    <div id="partida3Boton">
+      <input class="boton" type="button" onclick="salir3()" value="SALIR">
+    </div>
+  </div>
+  <form id="formJuego3" action="{{url_for('juego')}}">
+    <input type="hidden" name="partida" value="3" disabled>
+  </form>
+</div>
+
+<div class="esperando" id="esperando4">
+  <div class="contenedorEsperando">
+    <a class="subtitulo unselectable">ESPERANDO A OTRO JUGADOR PARA INICIAR LA PARTIDA 4</a>
+    <div class="contenedorNombres">
+      <div id="nombreJug1"><a class="unselectable">JUGADOR 1: </a><input type="text" class="nombreJugador" id="partida4Jug1" disabled></div>
+      <div id="nombreJug2"><a class="unselectable">JUGADOR 2: </a><input type="text" class="nombreJugador" id="partida4Jug2" disabled></div>
+    </div>
+    <div id="partida4Boton">
+      <input class="boton" type="button" onclick="salir4()" value="SALIR">
+    </div>
+  </div>
+  <form id="formJuego4" action="{{url_for('juego')}}">
+    <input type="hidden" name="partida" value="4" disabled>
+  </form>
+</div>
+
+<div class="esperando" id="esperando5">
+  <div class="contenedorEsperando">
+    <a class="subtitulo unselectable">ESPERANDO A OTRO JUGADOR PARA INICIAR LA PARTIDA 5</a>
+    <div class="contenedorNombres">
+      <div id="nombreJug1"><a class="unselectable">JUGADOR 1: </a><input type="text" class="nombreJugador" id="partida5Jug1" disabled></div>
+      <div id="nombreJug2"><a class="unselectable">JUGADOR 2: </a><input type="text" class="nombreJugador" id="partida5Jug2" disabled></div>
+    </div>
+    <div id="partida5Boton">
+      <input class="boton" type="button" onclick="salir5()" value="SALIR">
+    </div>
+  </div>
+  <form id="formJuego5" action="{{url_for('juego')}}">
+    <input type="hidden" name="partida" value="5" disabled>
+  </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="./static/javascript/conexion.js"></script>
+<script src="./static/javascript/salir.js"></script>
+{% endblock %}

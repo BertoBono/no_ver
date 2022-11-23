@@ -1,0 +1,44 @@
+{% extends './html/base.html' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="./static/CSS/login.css">
+{% endblock %}
+
+{% block title %}
+Iniciar Sesión - WORDS.inc
+{% endblock %}
+
+{% block main_content %}
+<div class="contenedor">
+  <div class="titulo unselectable">
+    INICIAR SESIÓN
+  </div>
+  <form id="formLogin" action="url_for('verificarUsuario')" method="POST">
+    <input type="text" id="nombre" name="nombre" placeholder="USUARIO:" required><br>
+    <input type="password" id="contraseña" name="contraseña" onchange="verificarLogin()" 
+  placeholder="CONTRASEÑA:" required><br>
+    <input type="button" id="ingresar" onclick="verificarLogin()" value="INGRESAR">
+  </form>
+  <hr>
+  <p>¿No tienes una cuenta? <a href="{{url_for('registrarUsuario')}}">Registrate Aquí</a></p>
+  <div class="invisible" id="contraIncorrecta">
+    <div class="contenedorModal">
+      <a class="subtitulo unselectable">¡El nombre de usuario o la contraseña son incorrectos!</a>
+    </div>
+  </div>
+  <div class="invisible" id="enLinea">
+    <div class="contenedorModal">
+      <a class="subtitulo unselectable" id="subtituloEnLinea">¡El nombre de usuario o la contraseña son incorrectos!</a>
+    </div>
+  </div>
+  <div class="invisible" id="completarDatos">
+    <div class="contenedorModal">
+      <a class="subtitulo unselectable">¡Para iniciar sesión debe completar nombre y contraseña!</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="./static/javascript/cuentas.js"></script>
+{% endblock %}

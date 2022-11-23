@@ -1,0 +1,44 @@
+{% extends './html/base.html' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="./static/CSS/registro.css">
+{% endblock %}
+
+{% block title %}
+Registro - WORDS.inc
+{% endblock %}
+
+{% block main_content %}
+<div class="contenedor"> 
+  <div class="titulo unselectable">
+    REGISTRARSE
+  </div>
+  <form id="formRegistro" action="{{url_for('confirmarRegistro')}}" method="POST">
+    <input type="text" id="nombre" name="nombre" placeholder="USUARIO:" required><br>
+    <input type="password" id="contraseña" name="contraseña" placeholder="CONTRASEÑA:" required><br>
+    <input type="password" id="repetirContraseña" name="repContraseña" onchange="repeticionContraseña()" placeholder="REPITA LA CONTRASEÑA:" required><br>
+    <input type="button" id="registrar" onclick="repeticionContraseña()" value="REGISTRARSE">
+  </form>
+  <hr>
+<p>¿Ya tienes una cuenta? <a href="{{url_for('iniciarSesion')}}">Inicie Sesión Aquí</a></p>
+</div>
+<div class="invisible" id="noCoinciden">
+    <div class="contenedorModal">
+      <a class="subtitulo unselectable">¡Las contraseñas no coinciden! Vuelve a intentarlo</a>
+    </div>
+  </div>
+  <div class="invisible" id="completarTodo">
+    <div class="contenedorModal">
+      <a class="subtitulo unselectable">¡Es necesario que se completen todos los datos para poder registrarse!</a>
+    </div>
+  </div>
+  <div class="invisible" id="nombreEnUso">
+    <div class="contenedorModal">
+      <a class="subtitulo unselectable">¡Ese nombre de usuario ya está en uso! Pruebe con otro</a>
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+<script src="./static/javascript/cuentas.js"></script>
+{% endblock %}

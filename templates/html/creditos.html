@@ -1,0 +1,28 @@
+{% extends './html/base.html' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="./static/CSS/creditos.css">
+{% endblock %}
+
+{% block title %}
+Créditos - WORDS.inc
+{% endblock %}
+
+{% block nav %}
+<div class="navbar">
+  <input class="salir" type="button" onclick="cerrarSesion()" value="Cerrar Sesión">
+  <form id="formSalir" action="{{url_for('index')}}"></form>
+</div>
+{% endblock %}
+
+
+{% block main_content %}
+<div class="contenedor">
+  <p>El juego web 'WORDS.inc' fue creado y desarrollado por el Grupo n°1 de la carrera de informática. <br></br>Los integrantes del grupo son: Lucas Bertoli, Bautista Della Penna, Manuel Ledo, Bono Neer y Matías Torre.<br><br>A su vez, nuestro proyecto tomó inspiración de otro juego web, 'JKLM.FUN', más específicamente, su minijuego 'BombParty'.<br><br>Para facilitarnos el proceso de trabajo usamos una base de datos que contiene más de 55000 palabras del idioma español, creada por un usuario de blogspot llamado 'Reynier'. Si haces click <a href="https://scriptinside.blogspot.com/2012/01/listado-de-palabras-en-castellano.html" target="_blank">aquí</a> vas a ser redirigido al susodicho blog.</p>
+  <input type="button" class="boton" onclick="window.history.back();" value="VOLVER">
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="./static/javascript/salir.js"></script>
+{% endblock %}

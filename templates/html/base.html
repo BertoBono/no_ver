@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Juego de generar una palabra a partir de 2 letras PLATINUM DELUXE 2022 DIRECTOR’S CUT - PRE ORDER BONUS INCLUDED - GOTY 2023 EDITION - (INCLUIDO EL PARCHE 27.2 CON BUGS DE MULTIJUGADOR CORREGIDOS) - EPIC GAMES EDITION">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="author" content="BERTOLI, DELLA PENNA, LEDO, NEER Y TORRE - GRUPO 01">
+  {% block stylesheet %}{% endblock %}
+  <title>{% block title %}{% endblock %}</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+    
+    body{
+      background-image: url("./static/img/fondo.png");
+      animation: movimiento 8s infinite linear alternate;
+      margin: 0;
+    }
+
+    @keyframes movimiento{
+      from
+      {
+        background-position: top;
+      }
+      to
+      {
+        background-position: bottom;
+      }
+    }
+
+    .unselectable {
+       -moz-user-select: -moz-none;
+       -khtml-user-select: none;
+       -webkit-user-select: none;
+       -ms-user-select: none;
+       user-select: none;
+    }
+
+    
+  </style>
+  <link rel="icon" href="./static/img/pageicon.png">
+</head>
+<body onload="{% block onload %}{% endblock %}">
+  <nav>{% block nav %}{% endblock %}</nav>
+  
+  <header>{% block headline %}{% endblock %}</header>
+      
+  <article>{% block main_content %}{% endblock %}</article>
+
+  {% block script %}{% endblock %}
+</body>
+</html>

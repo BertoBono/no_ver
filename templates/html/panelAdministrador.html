@@ -1,0 +1,72 @@
+{% extends './html/base.html' %}
+
+{% block title %}
+Panel de administrador - WORDS.inc
+{% endblock %}
+
+{% block stylesheet %}
+<style>
+  label {
+    border: 2px black solid;
+    background-color: white;
+  }
+</style>
+{% endblock %}
+
+{% block nav %}
+<div class="navbar">
+  <input class="salir" type="button" onclick="cerrarSesion()" value="Cerrar Sesión">
+  <form id="formSalir" action="{{url_for('index')}}"></form>
+</div>
+{% endblock %}
+
+
+{% block onload %}
+completarSelect({{listaJugadores}}, 'devolver');completarSelect({{listaJugadores}}, 'modificar');completarSelect({{listaJugadores}}, 'borrar');
+{% endblock %}
+
+{% block main_content %}
+<form method="GET">
+  <label for="devolver">Devolver Jugador: </label>
+  <select id="devolver" name="devolver"></select>
+  <input type="button" onclick="devolverJugador()" value="Devolver">
+</form>
+<br>
+<br>
+<form method="PUT">
+  <label for="modificar">Seleccionar Jugador: </label>
+  <select id="modificar" name="modificar"></select><br>
+  <label for="modVictorias">Ingrese el nuevo valor de victorias de este jugador:   </label>
+  <input type="number" id="modVictorias" value="">
+  <input type="button" onclick="modificarJugador()" value="Modificar">
+</form>
+<br>
+<br>
+<form method="DELETE">
+  <label for="borrar">Borrar Jugador: </label>
+  <select id="borrar" name="borrar"></select>
+  <input type="button" onclick="borrarJugador()" value="Borrar">
+</form>
+<br>
+<br>
+<!-- Usado únicamente una vez, para crear las partidas en un estado 'base' (O sea los "lobbies" están vacíos) -->
+<form method="POST">
+  <label for="crear">Crear Partidas:</label>
+  <input type="button" onclick="crearPartidas()" value="Crear">
+</form>
+<br>
+<br>
+<!-- Usado únicamente cuando hay un problema en el que una partida no termina y los datos quedan en la base, teniendo que borrarlos manualmente -->
+<form method="PUT">
+  <label for="vaciar">Número de partida para resetear (1 - 5):  </label>
+  <input type="number" id="vaciar" name="resetear">
+  <input type="button" onclick="vaciarPartidas()" value="Vaciar">
+</form>
+<br>
+<br>
+{% endblock %}
+
+{% block script %}
+<script src="./static/javascript/salir.js"></script>
+<script src="./static/javascript/pan_admin.js"></script>
+{% endblock %}

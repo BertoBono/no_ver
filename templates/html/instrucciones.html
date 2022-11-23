@@ -1,0 +1,28 @@
+{% extends './html/base.html' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="./static/CSS/instrucciones.css">
+{% endblock %}
+
+{% block title %}
+¿Cómo jugar? - WORDS.inc
+{% endblock %}
+
+{% block nav %}
+<div class="navbar">
+  <input class="salir" type="button" onclick="cerrarSesion()" value="Cerrar Sesión">
+  <form id="formSalir" action="{{url_for('index')}}"></form>
+</div>
+{% endblock %}
+
+
+{% block main_content %}
+<div class="contenedor">
+  <p>'WORDS.inc' es un juego en el que podés competir contra otra persona, en el que cada jugador tiene que escribir una palabra a partir de una combinación de 2 letras que genera el programa. Pero, no puede escribirse cualquier cosa que contenga esas 2 letras, sí o sí tiene que ser una palabra que exista en el diccionario español. Y ojo, porque una vez que uses una palabra, ya no la vas a poder repetir en la misma partida.<br><br>Para ganar la partida, tenés que ser el que más puntos entre los dos jugadores haya hecho, al llegar a un total de 175 puntos, o cualquier número por encima de ese que sea impar (Para evitar empates). Los puntos de cada jugador, dependen de la cantidad de letras que tengan las palabras que ingresen, siendo una letra equivalente a 1 punto.<br><br>Si no se te llega a ocurrir una palabra que contenga esas 2 letras, hay un contador de 15 segundos que las resetea. Este contador es la barra verde que se encuentra encima de tu nombre.<br><br>Durante la partida vas a poder ver a tu derecha todas las palabras que intenta tu rival con las letras que le tocaron a él. También se pueden ver unos circulos en los que van a aparecer un símbolo de correcto o incorrecto dependiendo de si la palabra usada es válida o no. Esta validez depende de si se encuentra en la base de datos o no, si la palabra ya fue usada o si no contiene las dos letras pedidas.</p>
+  <input type="button" class="boton" onclick="window.history.back();" value="VOLVER">
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="./static/javascript/salir.js"></script>
+{% endblock %}

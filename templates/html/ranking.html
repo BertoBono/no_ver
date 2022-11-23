@@ -1,0 +1,33 @@
+{% extends './html/base.html' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="./static/CSS/ranking.css">
+{% endblock %}
+
+{% block title %}
+Top Jugadores - WORDS.inc
+{% endblock %}
+
+{% block nav %}
+<div class="navbar">
+  <input class="salir" type="button" onclick="cerrarSesion()" value="Cerrar Sesión">
+  <form id="formSalir" action="{{url_for('index')}}"></form>
+</div>
+{% endblock %}
+
+{% block main_content %}
+<div class="contenedor">
+  <div class="titulo unselectable">
+    RANKING DE LOS MEJORES JUGADORES
+  </div>
+  <table id="tablaRanking">
+  
+  </table>
+  <input type="button" class="boton" onclick="window.history.back();" value="VOLVER">
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="./static/javascript/salir.js"></script>
+<script src="./static/javascript/ranking.js"></script>
+{% endblock %}

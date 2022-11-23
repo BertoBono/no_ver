@@ -1,0 +1,106 @@
+.titulo{
+  font-family: 'Libre Franklin', 'sans-serif';
+  color: #dfbb3a;
+  text-shadow: -1px 0 0.1vw #dfbb3a, 0 1px 0.1vw #dfbb3a, 1px 0 0.1vw #dfbb3a, 0 -1px 0.1vw #dfbb3a;
+  font-size: 2.5vw;
+  text-align: center;
+}
+
+table
+{
+  margin-top: 5vh;
+  background-color: #fee439;
+  color: #7b1e1e;
+  text-align: center;
+  border-collapse: collapse;
+  width: 50vw;
+}
+
+th, td
+{
+  font-size: 2vh;
+  font-family: 'League Gothic', 'sans-serif';
+  padding: 1.3vh;
+}
+
+.thead
+{
+  background-color: #fee439;
+  border-bottom: solid 5px #7b1e1e;
+}
+
+tr:nth-child(even)
+{
+  background-color: #feeb71;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.navbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #471515;
+  border: 2px solid white;
+  position: fixed;
+  top: 0%;
+  width: 101vw;
+  height: 4vh;
+  min-height: 30px;
+  margin-top: -2.1px;
+  margin-left: calc(-8vw - 11px);
+  padding-right: 5px;
+  padding-left: calc(1vw - 6px);
+}
+
+.salir {
+  font-family: 'League Gothic', 'sans-serif';
+  background: none;
+  border: none;
+  color: white;
+  font-size: 3vh;
+}
+
+.salir:hover {
+  transform: scale(1.05);
+}
+
+.contenedor{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #471515;
+  border: 2px solid white;
+  border-radius: 10px;
+  height: 80vh;
+  width: 80vw;
+  padding: 2vw;
+}
+
+p  {
+  font-family: 'League Gothic', 'sans-serif';
+  color: white;
+  font-size: 3vh;
+} 
+
+.boton{
+  font-family: 'League Gothic', 'sans-serif';
+  font-size: calc(2vw + calc(2vh * 0.5));
+  border: 1px solid #dfbb3a;
+  border-radius: 1vw;
+  background-color: #dfbb3a;
+  color: #7b1e1e;
+  text-shadow: -1px 0 0.1vh #7b1e1e, 0 1px 0.1vh #7b1e1e, 1px 0 0.1vh #7b1e1e, 0 -1px 0.1vh #7b1e1e;
+  padding: 1vw;
+  margin-top: 1vh;
+  transition: 0.3s;
+}
+
+.boton:hover {
+  transform: scale(1.05);
+}

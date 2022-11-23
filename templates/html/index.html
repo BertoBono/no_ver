@@ -1,0 +1,27 @@
+{% extends './html/base.html' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="./static/CSS/styles.css">
+{% endblock %}
+
+{% block title %}
+Inicio - WORDS.inc
+{% endblock %}
+
+{% block main_content %}
+<div class="contenedor">
+  <div class="titulo1 unselectable" id="parteIzq">
+    WORDS
+  </div>
+  <div class="titulo2 unselectable" id="parteDer">
+    .INC
+  </div>
+</div>
+<form action="{{url_for('iniciarSesion')}}">
+  <input class="inicioSesion" type="submit" value="INICIAR SESIÓN">
+</form>
+{% endblock %}
+
+{% block script %}
+<script src="./static/javascript/main.js"></script>
+{% endblock %}
